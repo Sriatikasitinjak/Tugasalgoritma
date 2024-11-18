@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+// Fungsi untuk menghitung gaji pokok
+int hitungGajiPokok(int jamKerja) {
+    return jamKerja * 2000;
+}
+
+// Fungsi untuk menghitung uang lembur
+int hitungUangLembur(int jamKerja) {
+    if (jamKerja > 7) {
+        return (jamKerja - 7) * 3000;
+    }
+    return 0;
+}
+
+// Fungsi untuk menghitung uang makan
+int hitungUangMakan(int jamKerja) {
+    if (jamKerja >= 8 && jamKerja < 10) {
+        return 1500;
+    } else if (jamKerja >= 10) {
+        return 2500;
+    }
+    return 0;
+}
+
+// Fungsi untuk menghitung uang jasa lembur
+int hitungUangJasa(int jamKerja) {
+    if (jamKerja >= 9) {
+        return 3000;
+    }
+    return 0;
+}
+
+// Fungsi utama untuk menghitung total gaji
+int hitungTotalGaji(int jamKerja) {
+    int gajiPokok = hitungGajiPokok(jamKerja);
+    int uangLembur = hitungUangLembur(jamKerja);
+    int uangMakan = hitungUangMakan(jamKerja);
+    int uangJasa = hitungUangJasa(jamKerja);
+
+    return gajiPokok + uangLembur + uangMakan + uangJasa;
+}
+
+// Fungsi utama program
+int main() {
+    int jamKerja;
+
+    // Input jumlah jam kerja
+    cout << "Masukkan jumlah jam kerja: ";
+    cin >> jamKerja;
+
+    // Hitung semua komponen gaji
+    int gajiPokok = hitungGajiPokok(jamKerja);
+    int uangLembur = hitungUangLembur(jamKerja);
+    int uangMakan = hitungUangMakan(jamKerja);
+    int uangJasa = hitungUangJasa(jamKerja);
+    int totalGaji = hitungTotalGaji(jamKerja);
+
+    // Output hasil perhitungan
+    cout << "Gaji Pokok     : Rp " << gajiPokok << endl;
+    cout << "Uang Lembur    : Rp " << uangLembur << endl;
+    cout << "Uang Makan     : Rp " << uangMakan << endl;
+    cout << "Uang Jasa      : Rp " << uangJasa << endl;
+    cout << "Total Gaji     : Rp " << totalGaji << endl;
+
+    return 0;
+}
